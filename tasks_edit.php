@@ -13,8 +13,7 @@
 <tr><th>タスクID</th><th>タイトル</th><th>ステータス</th><th>参加メンバー</th></tr>
 
 <?php
-$pdo=new PDO('mysql:host=localhost;dbname=data;charset=utf8', 'user', 'password');
-
+require './connect.php';
 $sql=$pdo->prepare('select * from task where task_id=?');
 $sql->execute([$_REQUEST['task_id']]);
 foreach ($sql as $row_task) {

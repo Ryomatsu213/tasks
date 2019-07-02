@@ -17,7 +17,7 @@
 
 <div>参加メンバー<br>
 <?php
-$pdo=new PDO('mysql:host=localhost;dbname=data;charset=utf8', 'user', 'password');
+require './connect.php';
 $sql=$pdo->prepare('select * from member');
 $sql->execute();
 foreach ($sql as $row) {

@@ -6,7 +6,7 @@
 <body>
 
 <?php
-$pdo=new PDO('mysql:host=localhost;dbname=data;charset=utf8', 'user', 'password');
+require './connect.php';
 $sql=$pdo->prepare('update task set task_name=?, task_status=? where task_id=?');
 $sql->execute([htmlspecialchars($_REQUEST['name']), $_REQUEST['status'], $_REQUEST['task_id']]);
 

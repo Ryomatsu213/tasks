@@ -6,7 +6,7 @@
 <body>
 
 <?php
-$pdo=new PDO('mysql:host=localhost;dbname=data;charset=utf8', 'user', 'password');
+require './connect.php';
 $sql=$pdo->prepare('insert into task values(null,?,?)');
 $sql->execute([htmlspecialchars($_REQUEST['name']), $_REQUEST['status']]);
 

@@ -21,7 +21,6 @@
 <div><input type="submit" value="削除"></div>
 </form>
 
-
 <form action="tasks_search.php" method="post">
 <div>タスクのステータスを選択してください。</div>
 <div><input type="radio" name="task_status" value="0">未着手<input type="radio" name="task_status" value="1">処理中<input type="radio" name="task_status" value="2">完了</div>
@@ -32,7 +31,7 @@
 <tr><th>タスクID</th><th>タイトル</th><th>ステータス</th><th>参加メンバー</th></tr>
 
 <?php
-$pdo=new PDO('mysql:host=localhost;dbname=data;charset=utf8', 'user', 'password');
+require './connect.php';
 foreach ($pdo->query('select * from task') as $row_task) {
 ?>
 
@@ -63,10 +62,6 @@ foreach ($pdo->query('select * from task') as $row_task) {
 ?>
 
 </table>
-
-
-
-
 
 </body>
 </html>
